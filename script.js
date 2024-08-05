@@ -23,6 +23,29 @@ document.addEventListener("DOMContentLoaded", function() {
         previousScreen.textContent = previousValue + " " + operator;
         currentScreen.textContent = currentValue;
     }))
+
+    clear.addEventListener("click", function() {
+        previousValue = '';
+        currentValue = '';
+        operator = '';
+        previousScreen.textContent = currentValue;
+        currentScreen.textContent = currentValue
+    })
+
+    equal.addEventListener("click", function() {
+        if (currentValue != '' && previousValue != '') {
+            calculate();
+            previousScreen.textContent = '';
+            if (previousValue.length <=5) {
+                currentScreen.textContent = previousValue;
+            } else {
+                currentScreen.textContent = previousValue.slice(0,5) + "...";
+            }
+        }
+    })
+    decimals.addEventListener("click", function() {
+        addDecimal();
+    })
 })
 
 function handleNumber(num) {
@@ -37,22 +60,32 @@ function handleOperator(op) {
     previousValue = currentValue;
     currentValue = '';
 }
-// function add(a,b) {
-//     return a + b;
-// }
 
-// function subtract(a,b) {
-//     return a - b;
-// }
+function calculate() {
+    previousValue = Number(previousValue);
+    currentValue = Number(currentValue);
 
-// function multiply(a,b) {
-//     return a * b;
-// }
+    if (operator==="+") {
+        previousValue+=currentValue;
+    } else if (operator==="-") {
+        previousValue-=currentValue;
+    } else if (operator==="x") {
+        previousValue*=currentValue; 
+    } else {
+        previousValue/=currentValue;
+    }
 
-// function divide(a,b) {
-//     return a / b;
-// }
+    previousValue = roundNumber(previousValue);
+    previousValue = previousValue.toString();
+    currentValue = previousValue.toString();
+}
 
-function operate() {
+function roundNumber(num) {
+    return Math.round(num *1000) / 1000;
+}
 
+function addDecimal(num) {
+    if (!currentValue.includes(".")) {
+        currentValue += '.';
+    }
 }
