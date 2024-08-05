@@ -17,12 +17,25 @@ document.addEventListener("DOMContentLoaded", function() {
         handleNumber(e.target.textContent);
         currentScreen.textContent = currentValue;
     }))
+
+    operators.forEach((op) => op.addEventListener("click", function(e) {
+        handleOperator(e.target.textContent);
+        previousScreen.textContent = previousValue + " " + operator;
+        currentScreen.textContent = currentValue;
+    }))
 })
 
 function handleNumber(num) {
     if (currentValue.length <=5) {
         currentValue+=num;
     }
+}
+
+
+function handleOperator(op) {
+    operator = op;
+    previousValue = currentValue;
+    currentValue = '';
 }
 // function add(a,b) {
 //     return a + b;
