@@ -66,7 +66,20 @@ body {
     
 }
 #screen {
-    width: 325px;
+    width: 300px;
     border: 1px solid black;
     height: 75px;
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.previous {
+    font-size: 20px;
+}
+
+.current {
+    font-size: 30px;
 }
