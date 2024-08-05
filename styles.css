@@ -7,16 +7,32 @@ body {
     height: 100vh;
 }
 
+.background {
+    background-color: black;
+}
+
+h1 {
+    color: black;
+    font-size: 75px;
+    background-color: orange;
+}
+.calculator {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+}
 .btn {
     height: 75px;
     width: 75px;
     margin: 15px;
-    font-size: 40px;
+    font-size: 75px;
 }
 
 .btn.number {
-    border: 1px solid black;
+    border: 1px solid white;
     border-radius: 10px;
+    color: white;
+
 }
 
 .btn.number:hover {
@@ -24,8 +40,9 @@ body {
 }
 
 .btn.operator {
-    border: 1px solid blue;
+    border: 1px solid orange;
     border-radius: 10px;
+    color: white;
 }
 
 .btn.operator:hover {
@@ -35,6 +52,7 @@ body {
 .btn.decimal {
     border: 1px solid orange;
     border-radius: 10px;
+    color: white;
 }
 
 .btn.decimal:hover {
@@ -42,8 +60,9 @@ body {
 }
 
 .btn.equal {
-    border: 1px solid red;
+    border: 1px solid orange;
     border-radius: 10px;
+    color: white;
 }
 
 .btn.equal:hover {
@@ -51,8 +70,9 @@ body {
 }
 
 #clear-btn {
-    border: 1px solid purple;
+    border: 1px solid orange;
     border-radius: 10px;
+    color: white;
 }
 
 #clear-btn:hover {
@@ -67,13 +87,15 @@ body {
 }
 #screen {
     width: 300px;
-    border: 1px solid black;
+    border: 3px solid orange;
+    border-radius: 4px;
     height: 75px;
     margin: 15px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
+    background-color: white;
 }
 
 .previous {
